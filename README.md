@@ -1,17 +1,37 @@
-# Simple NFT Staking project
-## Readme will be updated soon.
+# NFT Staking project
+With help of this project you can create an NFT project, which you can stake and get ERC-20 (Coin) as reward.
 
+This project made using [Hardhat](https://hardhat.org/).
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
-
-Try running some of the following tasks:
-
+To deploy the contracts use the following commands:
 ```shell
-npx hardhat accounts
+npm install
 npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/deploy.js
-npx hardhat help
+npx hardhat run scripts/deploy.js
+```
+## Deploying to remote networks
+To deploy to a remote network such as mainnet or any testnet, you need to add a network entry to your `hardhat.config.js` file.
+
+We’ll use [Oasis Emerald Network](https://docs.oasis.dev/general/developer-resources/emerald-paratime/) for this example, but you can add any network similarly:
+```javascript
+module.exports = {
+  solidity: "0.8.4",
+  networks: {
+    emeraldTestnet: {
+      url: 'https://testnet.emerald.oasis.dev',
+      accounts: [
+        `${ROPSTEN_PRIVATE_KEY}`,
+      ],
+    }
+  }
+};
+```
+Finally, run:
+```shell
+npx hardhat run scripts/deploy.js --network emeraldTestnet
+```
+## Running Tests
+To test the smart contracts run:
+```shell
+npx hardhat test test/sample-test.js
 ```
