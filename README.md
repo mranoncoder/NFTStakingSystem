@@ -20,7 +20,7 @@ module.exports = {
     emeraldTestnet: {
       url: 'https://testnet.emerald.oasis.dev',
       accounts: [
-        `${ROPSTEN_PRIVATE_KEY}`,
+        `${PRIVATE_KEY}`,
       ],
     }
   }
